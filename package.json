@@ -20,7 +20,7 @@
   "repository": "jsdom/jsdom",
   "dependencies": {
     "abab": "^2.0.0",
-    "acorn": "^6.0.4",
+    "acorn": "^7.1.1",
     "acorn-globals": "^4.3.0",
     "array-equal": "^1.0.0",
     "cssom": "^0.3.4",
