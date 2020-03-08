@@ -19,7 +19,7 @@
   "license": "MIT",
   "repository": "jsdom/jsdom",
   "dependencies": {
-    "abab": "^2.0.0",
+    "abab": "^2.0.3",
     "acorn": "^6.0.4",
     "acorn-globals": "^4.3.0",
     "array-equal": "^1.0.0",
