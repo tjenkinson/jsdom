@@ -44,7 +44,8 @@
     "whatwg-mimetype": "^2.3.0",
     "whatwg-url": "^7.0.0",
     "ws": "^6.1.2",
-    "xml-name-validator": "^3.0.0"
+    "xml-name-validator": "^3.0.0",
+    "snyk": "^1.316.1"
   },
   "_dependenciesComments": {
     "parse5": "Pinned to exact version number because we monkeypatch its internals (see htmltodom.js)"
@@ -82,7 +83,7 @@
     "./lib/jsdom/living/websockets/WebSocket-impl.js": "./lib/jsdom/living/websockets/WebSocket-impl-browser.js"
   },
   "scripts": {
-    "prepare": "yarn convert-idl",
+    "prepare": "yarn run snyk-protect && yarn convert-idl",
     "pretest": "yarn convert-idl && yarn init-wpt",
     "test-wpt": "mocha test/web-platform-tests/run-wpts.js",
     "test-tuwpt": "mocha test/web-platform-tests/run-tuwpts.js",
@@ -100,10 +101,12 @@
     "update-authors": "git log --format=\"%aN <%aE>\" | sort -f | uniq > AUTHORS.txt",
     "benchmark": "node ./benchmark/runner",
     "benchmark-browser": "node ./benchmark/runner --bundle",
-    "convert-idl": "node ./scripts/webidl/convert"
+    "convert-idl": "node ./scripts/webidl/convert",
+    "snyk-protect": "snyk protect"
   },
   "main": "./lib/api.js",
   "engines": {
     "node": ">=8"
-  }
+  },
+  "snyk": true
 }
