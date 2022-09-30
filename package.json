@@ -20,7 +20,7 @@
   "repository": "jsdom/jsdom",
   "dependencies": {
     "abab": "^2.0.0",
-    "acorn": "^6.0.4",
+    "acorn": "^6.4.1",
     "acorn-globals": "^4.3.0",
     "array-equal": "^1.0.0",
     "cssom": "^0.3.4",
@@ -29,7 +29,7 @@
     "domexception": "^1.0.1",
     "escodegen": "^1.11.0",
     "html-encoding-sniffer": "^1.0.2",
-    "nwsapi": "^2.0.9",
+    "nwsapi": "^2.2.1",
     "parse5": "5.1.0",
     "pn": "^1.1.0",
     "request": "^2.88.0",
@@ -43,8 +43,9 @@
     "whatwg-encoding": "^1.0.5",
     "whatwg-mimetype": "^2.3.0",
     "whatwg-url": "^7.0.0",
-    "ws": "^6.1.2",
-    "xml-name-validator": "^3.0.0"
+    "ws": "^6.2.2",
+    "xml-name-validator": "^3.0.0",
+    "@snyk/protect": "latest"
   },
   "_dependenciesComments": {
     "parse5": "Pinned to exact version number because we monkeypatch its internals (see htmltodom.js)"
@@ -82,7 +83,7 @@
     "./lib/jsdom/living/websockets/WebSocket-impl.js": "./lib/jsdom/living/websockets/WebSocket-impl-browser.js"
   },
   "scripts": {
-    "prepare": "yarn convert-idl",
+    "prepare": "yarn run snyk-protect && yarn convert-idl",
     "pretest": "yarn convert-idl && yarn init-wpt",
     "test-wpt": "mocha test/web-platform-tests/run-wpts.js",
     "test-tuwpt": "mocha test/web-platform-tests/run-tuwpts.js",
@@ -100,10 +101,12 @@
     "update-authors": "git log --format=\"%aN <%aE>\" | sort -f | uniq > AUTHORS.txt",
     "benchmark": "node ./benchmark/runner",
     "benchmark-browser": "node ./benchmark/runner --bundle",
-    "convert-idl": "node ./scripts/webidl/convert"
+    "convert-idl": "node ./scripts/webidl/convert",
+    "snyk-protect": "snyk-protect"
   },
   "main": "./lib/api.js",
   "engines": {
     "node": ">=8"
-  }
+  },
+  "snyk": true
 }
