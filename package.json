@@ -21,7 +21,7 @@
   "dependencies": {
     "abab": "^2.0.0",
     "acorn": "^6.0.4",
-    "acorn-globals": "^4.3.0",
+    "acorn-globals": "^6.0.0",
     "array-equal": "^1.0.0",
     "cssom": "^0.3.4",
     "cssstyle": "^1.1.1",
